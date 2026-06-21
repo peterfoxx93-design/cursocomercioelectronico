@@ -52,7 +52,7 @@ export function LandingPage() {
             </h1>
             <div className="mt-6 flex items-center gap-4">
               <img
-                src="/profesor.png"
+                src="/profesor.jpg"
                 alt={CURSO.profesor}
                 className="h-16 w-16 rounded-full border-2 border-white object-cover shadow-md"
               />
