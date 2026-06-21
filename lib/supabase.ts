@@ -114,6 +114,10 @@ const mockSupabaseClient = {
 let supabaseClient: SupabaseClient | null = null;
 
 export function getSupabase(): SupabaseClient {
+  if (supabaseClient) {
+    return supabaseClient;
+  }
+
   let url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/^["']|["']$/g, "");
   if (url) {
     if (!url.includes(".")) {
@@ -125,17 +129,6 @@ export function getSupabase(): SupabaseClient {
   }
 
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim().replace(/^["']|["']$/g, "");
-
-  console.error("Registration error debug config:", {
-    urlLength: url?.length,
-    keyLength: serviceRoleKey?.length,
-    urlStart: url?.substring(0, 20),
-    keyStart: serviceRoleKey?.substring(0, 20)
-  });
-
-  if (supabaseClient) {
-    return supabaseClient;
-  }
 
   // Si no hay credenciales, o son los placeholders por defecto, usamos el cliente mockeado para demostración
   if (

@@ -73,15 +73,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true, id: data.id }, { status: 201 });
-  } catch (error: any) {
-    console.error("Registration error detailed:", {
-      message: error?.message,
-      details: error?.details,
-      hint: error?.hint,
-      code: error?.code,
-      stack: error?.stack,
-      raw: error
-    });
+  } catch (error) {
+    console.error("Registration error:", error);
     return NextResponse.json(
       { error: "Error interno del servidor" },
       { status: 500 },
