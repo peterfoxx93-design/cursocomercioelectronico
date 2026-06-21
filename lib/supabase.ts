@@ -118,7 +118,16 @@ export function getSupabase(): SupabaseClient {
     return supabaseClient;
   }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/^["']|["']$/g, "");
+  let url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/^["']|["']$/g, "");
+  if (url) {
+    if (!url.includes(".")) {
+      url = `https://${url}.supabase.co`;
+    } else if (!url.startsWith("http")) {
+      url = `https://${url}`;
+    }
+    url = url.replace(/\/+$/, "");
+  }
+
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim().replace(/^["']|["']$/g, "");
 
   // Si no hay credenciales, o son los placeholders por defecto, usamos el cliente mockeado para demostración
