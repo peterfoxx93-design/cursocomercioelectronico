@@ -118,8 +118,8 @@ export function getSupabase(): SupabaseClient {
     return supabaseClient;
   }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/^["']|["']$/g, "");
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim().replace(/^["']|["']$/g, "");
 
   // Si no hay credenciales, o son los placeholders por defecto, usamos el cliente mockeado para demostración
   if (
