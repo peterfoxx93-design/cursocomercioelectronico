@@ -142,6 +142,13 @@ export function getSupabase(): SupabaseClient {
     return supabaseClient;
   }
 
+  console.log("Supabase config debug:", {
+    urlLength: url?.length,
+    keyLength: serviceRoleKey?.length,
+    urlStart: url?.substring(0, 20),
+    keyStart: serviceRoleKey?.substring(0, 20)
+  });
+
   supabaseClient = createClient(url, serviceRoleKey, {
     auth: {
       persistSession: false,
