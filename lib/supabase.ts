@@ -126,7 +126,7 @@ export function getSupabase(): SupabaseClient {
 
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim().replace(/^["']|["']$/g, "");
 
-  console.log("Supabase config debug:", {
+  console.error("Registration error debug config:", {
     urlLength: url?.length,
     keyLength: serviceRoleKey?.length,
     urlStart: url?.substring(0, 20),
