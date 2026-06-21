@@ -50,15 +50,22 @@ export function LandingPage() {
             <h1 className="text-3xl font-bold tracking-tight text-gray-dark sm:text-4xl">
               {CURSO.nombre}
             </h1>
-            <div className="mt-4 space-y-1 text-gray-muted">
-              <p>
-                <span className="font-medium text-gray-dark">Profesor:</span>{" "}
-                {CURSO.profesor}
-              </p>
-              <p>
-                <span className="font-medium text-gray-dark">Institución:</span>{" "}
-                {CURSO.institucion}, {CURSO.pais}
-              </p>
+            <div className="mt-6 flex items-center gap-4">
+              <img
+                src="/profesor.png"
+                alt={CURSO.profesor}
+                className="h-16 w-16 rounded-full border-2 border-white object-cover shadow-md"
+              />
+              <div className="space-y-0.5 text-sm text-gray-muted">
+                <p>
+                  <span className="font-semibold text-gray-dark">Profesor:</span>{" "}
+                  {CURSO.profesor}
+                </p>
+                <p>
+                  <span className="font-semibold text-gray-dark">Institución:</span>{" "}
+                  {CURSO.institucion}, {CURSO.pais}
+                </p>
+              </div>
             </div>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-muted">
               Esta no es una inscripción oficial. Es una lista de interés para
@@ -106,7 +113,7 @@ export function LandingPage() {
 
       <footer className="border-t border-gray-border bg-gray-light">
         <div className="mx-auto max-w-5xl px-4 py-6 text-center text-sm text-gray-muted sm:px-6">
-          {CURSO.institucion} · {CURSO.pais} · Quórum Comercio Electrónico
+          © {new Date().getFullYear()} Pedro Félix · Propietario y Desarrollador · Quórum Comercio Electrónico
         </div>
       </footer>
     </>
