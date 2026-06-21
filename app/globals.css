@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --infotep-orange: #e85d04;
+  --infotep-orange-dark: #c44d03;
+  --gray-light: #f5f5f5;
+  --gray-border: #e8e8e8;
+  --gray-muted: #6b7280;
+  --gray-dark: #2d2d2d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-infotep: var(--infotep-orange);
+  --color-infotep-dark: var(--infotep-orange-dark);
+  --color-gray-light: var(--gray-light);
+  --color-gray-border: var(--gray-border);
+  --color-gray-muted: var(--gray-muted);
+  --color-gray-dark: var(--gray-dark);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+
+.progress-bar-fill {
+  animation: progress-fill 0.8s ease-out;
+}
